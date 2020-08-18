@@ -10,6 +10,19 @@ Welcome to the FDL-3 blaster repository
 Print it, tweak it, share it and if you do and give us props. Please don't sell it without Project FDL permission.
 
 <br>
+
+# Changes to main Branch !WIP!
+
+This Fork was created to tweak the FDL-3-Firmware and Models to be used with an Arduino Pro Mini and a Generic SPI OLED instead of a Sparkfun MicroView.<br>
+Changes (planned):<br>
+## 1. Hardware:
+  * Use Arduino Pro Mini 
+  * Use 128x64 (Two color) SPI OLED 
+  * Change STL to fit new Display and Arduino 
+## 2. Software:
+  * Port current Firmware to new Hardware 
+
+<br>
 <br>
 
 # Operating your FDL-3
