@@ -37,7 +37,7 @@ Encoder myEnc(2, 3);
 // OLED DEF
 #define OLED_DC     8
 #define OLED_CS     10
-#define OLED_RESET  7
+
 #define OLED_WIDTH  128
 #define OLED_HEIGHT 64
 #define OLED_HEADER 16
@@ -47,7 +47,8 @@ Encoder myEnc(2, 3);
 #define CH_LH       14
 #define CH_SW       5
 #define CH_LW       10
-Adafruit_SSD1306 oled(OLED_WIDTH,OLED_HEIGHT, &SPI, OLED_DC, OLED_RESET, OLED_CS, 4000000UL);
+#define OLED_RESET     4 // Reset pin # (or -1 if sharing Arduino reset pin)
+Adafruit_SSD1306 oled(OLED_WIDTH, OLED_HEIGHT, &Wire, OLED_RESET);
 
 #define NOTHROTTLE 1000
 #define MINTHROTTLE 1285
@@ -62,7 +63,7 @@ Adafruit_SSD1306 oled(OLED_WIDTH,OLED_HEIGHT, &SPI, OLED_DC, OLED_RESET, OLED_CS
 #define pusherSwitchPin A1
 #define lockPin A2
 #define voltMeterPin A3
-#define presetBtnPin A4
+#define presetBtnPin A7
 
 //MENUS
 const char *knobMenu[] = 
@@ -147,7 +148,7 @@ BlastSettings readBlSettings = { 50, 100, 0, 220, 220, 14, 0, 1 };
 BlastSettings defBlSettings = { 50, 100, 0, 220, 220, 14, 0, 1 };
 
 void setup() {
-  oled.begin();
+  oled.begin(SSD1306_SWITCHCAPVCC, 0x3C);
   oled.clearDisplay();
   oled.display();
   oled.setTextSize(LARGE_T);   
